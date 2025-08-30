@@ -1,5 +1,6 @@
 cmake
 opencv-python
 opencv-contrib-python
+python-dotenv
 pytk
 Pillow
