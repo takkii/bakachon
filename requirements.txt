@@ -1,0 +1,5 @@
+cmake
+opencv-python
+opencv-contrib-python
+pytk
+Pillow

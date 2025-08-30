@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bakachon"
+version = "1.0.0.1"
+authors = [{ name="Takayuki Kamiyama", email="karuma.reason@gmail.com" }]
+description = "Take a Picture."
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+classifiers = [
+     "Programming Language :: Python :: 3.13",
+]
+dependencies = ['cmake', 'opencv-python', 'opencv-contrib-python', 'pytk', 'Pillow']
+
+[project.scripts]
+picture = 'bakachon.main:main'
+
+[tool.setuptools.dynamic]
+version = {attr = "bakachon.__version__"}

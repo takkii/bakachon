@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+bakachon/__init__.py
+bakachon/main.py
+bakachon.egg-info/PKG-INFO
+bakachon.egg-info/SOURCES.txt
+bakachon.egg-info/dependency_links.txt
+bakachon.egg-info/entry_points.txt
+bakachon.egg-info/requires.txt
+bakachon.egg-info/top_level.txt

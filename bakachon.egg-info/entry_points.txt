@@ -1,0 +1,2 @@
+[console_scripts]
+picture = bakachon.main:main
