@@ -3,6 +3,7 @@ import bakachon as baka
 import gc
 import os
 import threading
+import traceback
 
 from typing import Optional
 from os.path import join, dirname
@@ -15,6 +16,7 @@ load_dotenv(dotenv_path)
 
 PCI = os.environ.get("picture_images")
 BCF = os.environ.get("bakachon_folder")
+LOF = os.environ.get("log_folder")
 
 
 # Use SublimeDebugger, debugpy lib.
@@ -58,12 +60,25 @@ class Face(threading.Thread):
 try:
     thread = Face()
     thread.run()
-# Custom Exception, raise throw.
-except ValueError as ext:
-    print(ext)
-    raise RuntimeError from None
+    # TraceBack.
+except Exception:
+    # Specify the folder to record the exception log.
+    except_folder: Optional[str] = os.path.expanduser(str(LOF))
+    # Specify the file to log exception occurrences.
+    except_f: Optional[str] = os.path.expanduser('~/' + str(LOF) + '/d.log')
 
-# Once Exec.
+    # Load the dictionary.
+    if os.path.isdir(os.path.expanduser(except_folder)):
+        # Log writing process.
+        with open(os.path.expanduser(except_f), 'a') as log_py:
+            traceback.print_exc(file=log_py)
+
+            # throw except.
+            raise RuntimeError from None
+
+        # Current directory Not Found.
+    else:
+        # Unique exception occurrence.
+        raise ValueError("None, Please Check the Current directory.")
 finally:
-    # GC collection.
     gc.collect()
