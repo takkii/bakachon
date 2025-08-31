@@ -4,18 +4,8 @@ require 'fileutils'
 require 'open3'
 require 'readline'
 
-require 'dotenv'
-Dotenv.load
-
-
 # Create runner.
 class CleanRunner
-  # default encoding utf-8, change encode here.
-  def self.encoding_style
-    Encoding.default_internal = 'UTF-8'
-    Encoding.default_external = 'UTF-8'
-  end
-
   def self.delete
     puts ''
     puts 'Enter yes/no to delete, tab completion is available.'
@@ -27,9 +17,7 @@ class CleanRunner
       sel.grep(/\A#{Regexp.quote word}/)
     }
 
-    # Check, bakachon path
-    gold_exist = ENV['bakachon_folder']
-    encoding_style
+    gold_exist = 'bakachon_log'.to_s
 
     while (line = Readline.readline(""))
       line.chomp!
@@ -55,17 +43,15 @@ class CleanRunner
   end
 
   def self.run
-    # Check, bakachon path
-    gold_exist = "bakachon"
-    encoding_style
+    gold_exist = 'bakachon_log'.to_s
 
     if Dir.exist?(File.expand_path("~/#{gold_exist}"))
       puts ''
       puts 'Already have a bakachon log folder.'
       delete
     else
-      FileUtils.mkdir("#{ENV['bakachon_folder']}" + '_log')
-      FileUtils.mv("#{File.dirname(__FILE__)}/#{ENV['bakachon_folder']}", File.expand_path('~/'))
+      FileUtils.mkdir("#{gold_exist}")
+      FileUtils.mv("#{File.dirname(__FILE__)}/#{gold_exist}", File.expand_path('~/'))
       puts ''
       puts 'Created, bakachon log folder.'
       puts ''
