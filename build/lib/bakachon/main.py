@@ -1,12 +1,12 @@
-import cv2
+import cv2  # type: ignore
 import gc
-import imutils
+import imutils  # type: ignore
 import os
 import traceback
 import tkinter as tk
 
 from typing import Optional
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk  # type: ignore
 
 
 def pull_down_a_shutter(face_picture, log_folder):

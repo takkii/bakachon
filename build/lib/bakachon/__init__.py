@@ -5,4 +5,4 @@ from .main import pull_down_a_shutter
 __all__ = ['pull_down_a_shutter']
 
 # version
-__version__ = version(__package__)
+__version__ = version(__package__)  # type: ignore
