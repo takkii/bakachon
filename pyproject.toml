@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bakachon"
-version = "1.0.0.2"
+version = "1.0.1"
 authors = [{ name="Takayuki Kamiyama", email="karuma.reason@gmail.com" }]
 description = "Take a Picture."
 readme = "README.md"

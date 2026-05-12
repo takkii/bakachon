@@ -1,4 +1,4 @@
-import debugpy
+import debugpy  # type: ignore
 import bakachon as baka
 import gc
 import os
@@ -7,7 +7,7 @@ import traceback
 
 from typing import Optional
 from os.path import join, dirname
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # type: ignore
 
 load_dotenv(verbose=True)
 
