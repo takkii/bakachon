@@ -1,4 +1,7 @@
-*.pyc
+# Ignore Folder.
 .mypy_cache/*
 .idea/*
 .venv/*
+
+# Ignore file.
+*.pyc
